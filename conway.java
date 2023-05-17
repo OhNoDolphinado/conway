@@ -49,7 +49,4 @@ public class Conway{
 
     }
 
-    public void play(int runs){
-
-    }
 }
