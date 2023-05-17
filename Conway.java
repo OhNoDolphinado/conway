@@ -12,11 +12,12 @@
 public class Conway{
     private int boardSize;
     private int timesRun;
-    private int[][] board = new int[boardSize][boardSize];
+    private int[][] board;
 
     public Conway(int boardSize, int timesRun){
         this.boardSize = boardSize;
         this.timesRun = timesRun;
+        board = new int[boardSize][boardSize];
     }
 
     public void startBoard(){
@@ -36,17 +37,21 @@ public class Conway{
             String temp = "";
             for(int col = 0; col < board[0].length; col++){    
                 if (board[row][col] == 1){ // alive
-                    temp = temp + " ⬜";
+                    temp = temp + "⬜";
                 } else {
-                    temp = temp + " ⬛"; // dead
+                    temp = temp + "⬛"; // dead
                 }
             }
             System.out.println(temp);
         }
     }
 
-    public void play(int runs){
+    // public void play(int runs){
 
+<<<<<<< HEAD:conway.java
     }
 
+=======
+    // }
+>>>>>>> ae9efd6548b99c747eff8afe3cd2b1fb545c8402:Conway.java
 }
