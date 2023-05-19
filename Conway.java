@@ -37,13 +37,14 @@ public class Conway{
             String temp = "";
             for(int col = 0; col < board[0].length; col++){    
                 if (board[row][col] == 1){ // alive
-                    temp = temp + "# ";
+                    temp = temp + "#";
                 } else {
-                    temp = temp + "O "; // dead
+                    temp = temp + "O"; // dead
                 }
             }
             System.out.println(temp);
         }
+        System.out.println("---------------");
     }
 
     public int neighbourChecker(int row, int col){ // int and col of the selected cell
