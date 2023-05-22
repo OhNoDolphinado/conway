@@ -1,13 +1,13 @@
 public class ConwayMain {
     public static void main(String[] args) {
         Conway c = new Conway(5, 5);
+        ConwayGraphics cg = new ConwayGraphics(c.getBoard());
         c.startBoard();
-        c.seed(0, 0);
-        c.seed(0, 1);
-        c.seed(1, 0);
-       
+        c.printBoard();
+        
         
 
-        c.run();
+        // c.run();
     }
+
 }

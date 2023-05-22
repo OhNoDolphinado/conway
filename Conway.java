@@ -27,6 +27,10 @@ public class Conway{
             }
         }
     }
+
+    public int[][] getBoard(){
+        return board;
+    }
     
     public void seed(int x, int y){
         board[x][y] = 1;
@@ -61,11 +65,11 @@ public class Conway{
             }
         }
         return aliveSum;
-        // TODO: edge cases (ie the sides of the board, top of the board, etc)
     }
 
     public void run(){
         for (int runs = timesToRun; runs > 0; runs--) { // counts down the times we run this
+            printBoard();
             int[][] tempBoard = new int[boardSize][boardSize]; // creates dummy board
 
             for(int row = 0; row < board.length; row++){ // iterate through 2D board
@@ -86,7 +90,6 @@ public class Conway{
             }
 
             board = tempBoard; // sets the real board to the dummy board
-            printBoard();
         }
     }
 }
