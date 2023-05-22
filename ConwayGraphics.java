@@ -30,7 +30,8 @@ public class ConwayGraphics extends JPanel implements MouseListener{
                 } else {
                     gp.setColor(Color.black);
                 }
-                gp.fillRect(col*squareSize, row*squareSize, (row+1)*squareSize, (col+1)*squareSize); 
+                gp.fillRect(row*squareSize, col*squareSize, (row+1)*squareSize, (col+1)*squareSize);
+                gp.setColor(Color.black);
                 // paint the rectangle at the current position (10px by 10px squares)
             }
         }
