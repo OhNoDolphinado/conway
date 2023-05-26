@@ -5,7 +5,6 @@ import java.awt.event.*;
 // TODO: PaintComponent -- board is stupid (drawRect???)
 // TODO: get it to run and update on the screen 
 // TODO: play and pause -- only change seed when on paused?
-// TODO: fix the size of the screen to reflect the size of the board
 
 public class ConwayGraphics extends JPanel implements MouseListener, KeyListener {
 
@@ -24,33 +23,28 @@ public class ConwayGraphics extends JPanel implements MouseListener, KeyListener
         setFocusable(true);
         JFrame myFrame = new JFrame();
 
-        myFrame.setSize(500, 500);
+        myFrame.setSize((board.length+1)*squareSize, (board.length+2)*squareSize);
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myFrame.setLocationRelativeTo(null);
         myFrame.add(this);
         myFrame.setVisible(true);
 
     }
 
-    public void paintComponent(Graphics gp) {
-        // read the 2d array board and paint it
-        // boolean test = true;
+    public void paintComponent(Graphics gp) { // read the 2d array board and paint it
+        
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[0].length; col++) { // iterate through board values
+
+                gp.setColor(Color.blue);
                 if (board[row][col] == 1) { // determine color to paint board based on value (alive or dead)
                     gp.setColor(Color.orange);
                 }
-                // if (test == true){ // checkerboard testing
-                // gp.setColor(Color.white);
-                // test = false;
-                // } else if (test == false){
-                // gp.setColor(Color.black);
-                // test = true;
-                // }
 
                 gp.fillRect(row * squareSize, col * squareSize, (row + 1) * squareSize, (col + 1) * squareSize);
                 // System.out.println("START: " + row*squareSize + " " + col*squareSize);
                 // System.out.println("END : " + (row+1)*squareSize + " " + (col+1)*squareSize);
-                gp.setColor(Color.blue);
+                
                 // paint the rectangle at the current position (10px by 10px squares)
             }
         }
