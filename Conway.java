@@ -67,9 +67,22 @@ public class Conway{
         return aliveSum;
     }
 
-    public void run(){
+    public void run(ConwayGraphics cg){
         for (int runs = timesToRun; runs > 0; runs--) { // counts down the times we run this
-            printBoard();
+            while (cg.paused == false){
+                
+            }
+            
+            try {   
+                Thread.sleep(1000); // wait one second
+            }
+            catch (Exception e) {
+                System.out.println(e);
+            }
+
+            // printBoard(); // <-- this is the console equivalent of repaint()
+            cg.repaint();
+
             int[][] tempBoard = new int[boardSize][boardSize]; // creates dummy board
 
             for(int row = 0; row < board.length; row++){ // iterate through 2D board
@@ -79,7 +92,7 @@ public class Conway{
                         tempBoard[row][col] = 1;
                     } 
                     // 2. Any dead cell with three live neighbours becomes a live cell.
-                    else if (board[row][col] == 0 && neighbourChecker(row, col) == 3){ 
+                    else if (board[row][col] == 0 && neighbourChecker(row, col) == 3){
                         tempBoard[row][col] = 1;
                     } 
                     // 3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
@@ -90,6 +103,7 @@ public class Conway{
             }
 
             board = tempBoard; // sets the real board to the dummy board
+
         }
     }
 }

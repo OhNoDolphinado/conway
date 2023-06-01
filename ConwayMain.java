@@ -1,15 +1,16 @@
 public class ConwayMain {
     public static void main(String[] args) {
-        Conway c = new Conway(15, 5);
-        ConwayGraphics cg = new ConwayGraphics(c.getBoard());
+        Conway c = new Conway(15, 1000);
+        ConwayGraphics cg = new ConwayGraphics(c);
         c.startBoard();
-        // c.seed(4, 2);
-        // c.seed(4, 4);
-        // c.seed(2, 4);
-        // c.seed(1, 4);
-        // c.seed(1, 2);
-        c.printBoard();
-        c.run();
+        c.seed(2, 3);
+        c.seed(3, 4);
+        c.seed(1, 5);
+        c.seed(2, 5);
+        c.seed(3, 5);
+        // c.printBoard();
+        c.run(cg);
+        // repaint here?????
     }
 
 }
